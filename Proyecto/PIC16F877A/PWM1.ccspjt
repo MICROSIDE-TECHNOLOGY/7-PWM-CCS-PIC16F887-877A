@@ -1,0 +1,37 @@
+[Documentation]
+1=E:\Martin Hdez\Desktop\CCS 16F\877A\Práctica 7\PWM1 Notes.txt
+1T=PWM1 Notes.txt
+1E=
+1W=0
+Count=1
+
+[ProjectLog]
+Days=1
+D1=24-02-2022
+D1_L=2
+D1_L1=[50874]Started Editing.
+D1_L2=[50916]Project Closed.
+
+[Opened Files]
+1=PWM1.c
+t1=3
+2=PWM1 Notes.txt
+t2=1
+Count=2
+[PROJECT]
+Target=PWM1.hex
+Processor_Text=PIC16F877A
+CCSVersion=5.076
+Compiler=PCM
+[Target Data]
+FileList=PWM1.c
+[PWM1.c]
+Type=4
+[mru-list]
+1=PWM1.c
+[Units]
+Count=1
+1=PWM1 (main)
+
+[defines]
+buildcount=1

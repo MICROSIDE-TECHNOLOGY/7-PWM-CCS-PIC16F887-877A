@@ -1,0 +1,49 @@
+
+ROM used:   147/8192 (2%)
+            147/8192 (2%) including unused fragments
+
+            0.2 Average locations per line
+            11.3 Average locations per statement
+
+RAM used:   8/368 (2%) at main() level
+            9/368 (2%) worst case
+
+Stack used: 0 worst case (0 in main + 0 for interrupts)
+Stack size: 8
+
+Lines Stmts  %   Files
+----- ----- ---  -----
+   44    13 100  PWM1.c
+  786     0   0  ..\..\..\..\..\Program Files\PICC\Devices\16F887.h
+----- -----
+  830    13 Total
+
+Page ROM  %  RAM    Vol Diff  Functions:
+---- --- --- ---    --- ----  ----------
+0     20  14    1             @delay_ms1
+0     25  17    0     76  2.0  SisInit
+0     98  67    0    255  4.5  MAIN
+ Inline         0             @cinit1
+
+Program metrics:
+    Functions               2
+    Statements              13
+    Comments                159
+    Volume (V)              395
+    Difficulty (D)          6.2
+    Effort to implement (E) 2455
+    Time to implement (T)   2 minutes
+    Est Delivered Bugs (B)  0
+    Cyclomatic Complexity   2
+    Maintainability (MI)    160
+
+ Segment     Used  Free
+-----------  ----  ----
+00000-00003     4  0  
+00004-007FF   143  1901  
+00800-00FFF     0  2048  
+01000-017FF     0  2048  
+01800-01FFF     0  2048  
+
+
+
