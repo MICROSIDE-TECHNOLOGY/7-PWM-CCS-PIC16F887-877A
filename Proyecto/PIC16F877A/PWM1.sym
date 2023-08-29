@@ -1,8 +1,8 @@
-004-005 @READ_PROGRAM_MEMORY8.P1
-004-005 @WRITE_PROGRAM_MEMORY8.P2
+004-005 @WRITE_PROGRAM_MEMORY8.P1
+004-005 @READ_PROGRAM_MEMORY8.P2
 008     PSP_DATA
-015     CCP_1_LOW
 015     CCP_1
+015     CCP_1_LOW
 016     CCP_1_HIGH
 01B     CCP_2_LOW
 01B     CCP_2
@@ -17,30 +17,28 @@
 07A     @SCRATCH
 09C.6   C1OUT
 09C.7   C2OUT
-10D-10E @READ_PROGRAM_MEMORY8.P1
-10D-10E @WRITE_PROGRAM_MEMORY8.P2
+10D-10E @WRITE_PROGRAM_MEMORY8.P1
+10D-10E @READ_PROGRAM_MEMORY8.P2
 
 ROM Allocation:
-000004  SisInit
-000017  @delay_ms1
-00002B  MAIN
-00002B  @cinit1
-000039  @cinit2
+000004  @delay_ms1
+000018  @cinit1
+000018  main
+000026  @cinit2
 
 Project Directory:
-    E:\Martin Hdez\Desktop\CCS 16F\877A\Práctica 7\
+    C:\Users\victo\OneDrive\Documentos\X-TRAINER-hands-on\CCS\PIC16F\7-PWM-CCS-PIC16F887-877A\Proyecto\PIC16F877A\
 
 Project Files:
-    PWM1.c                                                  [24-feb.-22 14:08  CRC=7A0114EA]
-    ..\..\..\..\..\Program Files\PICC\Devices\16F877A.h     [15-ene.-18 15:53  CRC=63418C39]
+    PWM1.c                                                  [29-ago.-23 16:25  CRC=59631FA4]
+    ..\..\..\..\..\..\..\..\..\..\Program Files (x86)\PICCDEMO\Devices\16F877A.h [02-may.-23 08:27  CRC=32478F9C]
 
-Source signature=40842D5C
+Source signature=BDF23EDC
 Program memory checksum=0000
-Program memory CRC=0000
-Hex file CRC=E064
+Hex file CRC=ED22
 
 Units:
-    PWM1 (main)
+    C:\Users\victo\OneDrive\Documentos\X-TRAINER-hands-on\CCS\PIC16F\7-PWM-CCS-PIC16F887-877A\Proyecto\PIC16F877A\PWM1 (main)
 
 Compiler Settings:
     Processor:      PIC16F877A
@@ -49,7 +47,10 @@ Compiler Settings:
     Opt Level:      9
     Short,Int,Long: UNSIGNED: 1,8,16
     Float,Double:   32,32
-    Compile Mode:       CCS5
+    Compile Mode:   CCS5
+
+Compiler operating in Evaluation Mode
+To obtain a fully enabled compiler visit www.ccsinfo.com/products
 
 Output Files:
     XREF file:   PWM1.xsym

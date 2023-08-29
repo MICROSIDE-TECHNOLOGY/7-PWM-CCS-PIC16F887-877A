@@ -6,22 +6,26 @@
 Count=1
 
 [ProjectLog]
-Days=1
+Days=2
 D1=24-02-2022
 D1_L=2
 D1_L1=[50874]Started Editing.
 D1_L2=[50916]Project Closed.
+D2=29-08-2023
+D2_L=2
+D2_L1=[59205]Project Opened.
+D2_L2=[59304]Project Closed.
 
 [Opened Files]
 1=PWM1.c
-t1=3
+t1=1
 2=PWM1 Notes.txt
 t2=1
-Count=2
+Count=1
 [PROJECT]
 Target=PWM1.hex
 Processor_Text=PIC16F877A
-CCSVersion=5.076
+CCSVersion=5.115d
 Compiler=PCM
 [Target Data]
 FileList=PWM1.c
@@ -29,9 +33,12 @@ FileList=PWM1.c
 Type=4
 [mru-list]
 1=PWM1.c
+
+[defines]
+buildcount=2
+
+[fileformats]
+forcecoff=0
 [Units]
 Count=1
 1=PWM1 (main)
-
-[defines]
-buildcount=1

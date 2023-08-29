@@ -1,8 +1,10 @@
-CCS PCM C Compiler, Version 5.076, 56587               24-feb.-22 14:08
+CCS PCM C Compiler, Version 5.115d, 1               29-ago.-23 16:26
+Compiler operating in Evaluation Mode
+To obtain a fully enabled compiler visit www.ccsinfo.com/products
 
-               Filename:   E:\Martin Hdez\Desktop\CCS 16F\877A\Práctica 7\PWM1.lst
+               Filename:   C:\Users\victo\OneDrive\Documentos\X-TRAINER-hands-on\CCS\PIC16F\7-PWM-CCS-PIC16F887-877A\Proyecto\PIC16F877A\PWM1.lst
 
-               ROM used:   133 words (2%)
+               ROM used:   129 words (2%)
                            Largest free fragment is 2048
                RAM used:   8 (2%) at main() level
                            9 (2%) worst case
@@ -12,197 +14,184 @@ CCS PCM C Compiler, Version 5.076, 56587               24-feb.-22 14:08
 *
 0000:  MOVLW  00
 0001:  MOVWF  0A
-0002:  GOTO   02B
+0002:  GOTO   018
 0003:  NOP
-....................  
-.................... /* 
-....................   AUTOR: MICROSIDE TECHNOLOGY S.A. DE C.V. 
-....................   FECHA: JUNIO 2019 
-.................... */ 
-.................... /************************************************************************** 
-.................... Esta practica consiste en realizar un control PWM 
-.................... para regular la luminosidad de un led 
-.................... **************************************************************************/ 
-....................  
-.................... #include <16F877A.h>                    //Para PIC18F4550 cambiar por: #include <18F4550.h> 
-.................... //////////// Standard Header file for the PIC16F877A device //////////////// 
-.................... /////////////////////////////////////////////////////////////////////////// 
-.................... ////        (C) Copyright 1996, 2014 Custom Computer Services          //// 
-.................... //// This source code may only be used by licensed users of the CCS C  //// 
-.................... //// compiler.  This source code may only be distributed to other      //// 
-.................... //// licensed users of the CCS C compiler.  No other use, reproduction //// 
-.................... //// or distribution is permitted without written permission.          //// 
-.................... //// Derivative programs created using this software in object code    //// 
-.................... //// form are not restricted in any way.                               //// 
-.................... /////////////////////////////////////////////////////////////////////////// 
-.................... #device PIC16F877A 
-....................  
-.................... #list 
-....................  
-.................... #use delay(clock=20Mhz, crystal)                //Tipo de oscilador y frecuencia dependiendo del microcontrolador  
-*
-0017:  MOVLW  23
-0018:  MOVWF  04
-0019:  BCF    03.7
-001A:  MOVF   00,W
-001B:  BTFSC  03.2
-001C:  GOTO   02A
-001D:  MOVLW  06
-001E:  MOVWF  78
-001F:  CLRF   77
-0020:  DECFSZ 77,F
-0021:  GOTO   020
-0022:  DECFSZ 78,F
-0023:  GOTO   01F
-0024:  MOVLW  7B
-0025:  MOVWF  77
-0026:  DECFSZ 77,F
-0027:  GOTO   026
-0028:  DECFSZ 00,F
-0029:  GOTO   01D
-002A:  RETURN
-....................  
-....................  
-.................... unsigned int16 Duty=0;         //Variable para guardar el valor para PWM 
-.................... void SisInit(void)  
-.................... { 
-....................    setup_timer_2 (T2_DIV_BY_16, 254, 1); //Configura Timer2, periodo ajustado a 342uS 
-*
-0004:  MOVLW  00
-0005:  MOVWF  78
-0006:  IORLW  06
-0007:  MOVWF  12
-0008:  MOVLW  FE
-0009:  BSF    03.5
-000A:  MOVWF  12
-....................    setup_ccp1 (CCP_PWM); //Configura el módulo CCP para uso del PWM 
-000B:  BCF    03.5
-000C:  BCF    22.2
-000D:  MOVF   22,W
-000E:  BSF    03.5
-000F:  MOVWF  07
-0010:  BCF    03.5
-0011:  BCF    07.2
-0012:  MOVLW  0C
-0013:  MOVWF  17
-0014:  BCF    0A.3
-0015:  BCF    0A.4
-0016:  GOTO   03C (RETURN)
-.................... } 
-....................  
-.................... void main() 
-*
-002B:  MOVF   03,W
-002C:  ANDLW  1F
-002D:  MOVWF  03
-002E:  CLRF   21
-002F:  CLRF   20
-0030:  MOVLW  FF
-0031:  MOVWF  22
+.................... /************************************************************************************************
+.................... Company:
+.................... Microside Technology Inc.
+.................... File Name:
+.................... PWM!.c
+.................... Product Revision  :  1
+.................... Device            :  X-TRAINER
+.................... Driver Version    :  1.0
+.................... ************************************************************************************************/
+.................... 
+.................... /**************************************************************************
+.................... Esta practica consiste en realizar un control PWM
+.................... para regular la luminosidad de un led
+.................... **************************************************************************/
+.................... 
+.................... #include <16F877A.h>                         //Incluye el microcontrolador con el que se va a trabajar 
+.................... //////////// Standard Header file for the PIC16F877A device ////////////////
+.................... ///////////////////////////////////////////////////////////////////////////
+.................... ////        (C) Copyright 1996, 2020 Custom Computer Services          ////
+.................... //// This source code may only be used by licensed users of the CCS C  ////
+.................... //// compiler.  This source code may only be distributed to other      ////
+.................... //// licensed users of the CCS C compiler.  No other use, reproduction ////
+.................... //// or distribution is permitted without written permission.          ////
+.................... //// Derivative programs created using this software in object code    ////
+.................... //// form are not restricted in any way.                               ////
+.................... ///////////////////////////////////////////////////////////////////////////
+.................... #device PIC16F877A
+.................... 
+.................... #list
+.................... 
+.................... #use delay ( clock=20Mhz, crystal )          //Tipo de oscilador y frecuencia dependiendo del microcontrolador 
+0004:  MOVLW  23
+0005:  MOVWF  04
+0006:  BCF    03.7
+0007:  MOVF   00,W
+0008:  BTFSC  03.2
+0009:  GOTO   017
+000A:  MOVLW  06
+000B:  MOVWF  78
+000C:  CLRF   77
+000D:  DECFSZ 77,F
+000E:  GOTO   00D
+000F:  DECFSZ 78,F
+0010:  GOTO   00C
+0011:  MOVLW  7B
+0012:  MOVWF  77
+0013:  DECFSZ 77,F
+0014:  GOTO   013
+0015:  DECFSZ 00,F
+0016:  GOTO   00A
+0017:  RETURN
+.................... 
+.................... unsigned int16 Duty = 0;                     //Variable para guardar el valor para PWM
+.................... 
+.................... void main ( void )
+0018:  MOVF   03,W
+0019:  ANDLW  1F
+001A:  MOVWF  03
+001B:  CLRF   21
+001C:  CLRF   20
+001D:  MOVLW  FF
+001E:  MOVWF  22
+001F:  BSF    03.5
+0020:  BSF    1F.0
+0021:  BSF    1F.1
+0022:  BSF    1F.2
+0023:  BCF    1F.3
+0024:  MOVLW  07
+0025:  MOVWF  1C
+0026:  BCF    03.7
+.................... {
+....................    setup_timer_2 ( T2_DIV_BY_16, 254, 1 );   //Configura Timer2, periodo ajustado a 342uS
+0027:  MOVLW  00
+0028:  MOVWF  78
+0029:  IORLW  06
+002A:  BCF    03.5
+002B:  MOVWF  12
+002C:  MOVLW  FE
+002D:  BSF    03.5
+002E:  MOVWF  12
+....................    setup_ccp1 ( CCP_PWM );                   //Configura el módulo CCP para uso del PWM
+002F:  BCF    03.5
+0030:  BCF    22.2
+0031:  MOVF   22,W
 0032:  BSF    03.5
-0033:  BSF    1F.0
-0034:  BSF    1F.1
-0035:  BSF    1F.2
-0036:  BCF    1F.3
-0037:  MOVLW  07
-0038:  MOVWF  1C
-0039:  BCF    03.7
-.................... { 
-....................    SisInit(); 
-003A:  BCF    03.5
-003B:  GOTO   004
-....................  
-....................    while (TRUE) 
-....................    { 
-....................        
-....................       for (Duty = 0; Duty < 255; Duty++) 
-003C:  CLRF   21
-003D:  CLRF   20
-003E:  MOVF   21,F
-003F:  BTFSS  03.2
-0040:  GOTO   05F
-0041:  MOVF   20,W
-0042:  SUBLW  FE
-0043:  BTFSS  03.0
-0044:  GOTO   05F
-....................       { 
-....................          set_pwm1_duty (Duty); //Asigna el valor del Duty al PWM 
-0045:  MOVF   21,W
-0046:  MOVWF  79
-0047:  MOVF   20,W
-0048:  MOVWF  78
+0033:  MOVWF  07
+0034:  BCF    03.5
+0035:  BCF    07.2
+0036:  MOVLW  0C
+0037:  MOVWF  17
+.................... 
+....................    while ( 1 ) {
+....................       for ( Duty = 0; Duty < 255; Duty++ ) {
+0038:  CLRF   21
+0039:  CLRF   20
+003A:  MOVF   21,F
+003B:  BTFSS  03.2
+003C:  GOTO   05B
+003D:  MOVF   20,W
+003E:  SUBLW  FE
+003F:  BTFSS  03.0
+0040:  GOTO   05B
+....................          set_pwm1_duty ( Duty );             //Asigna el valor del Duty al PWM
+0041:  MOVF   21,W
+0042:  MOVWF  79
+0043:  MOVF   20,W
+0044:  MOVWF  78
+0045:  RRF    79,F
+0046:  RRF    78,F
+0047:  RRF    79,F
+0048:  RRF    78,F
 0049:  RRF    79,F
-004A:  RRF    78,F
-004B:  RRF    79,F
-004C:  RRF    78,F
-004D:  RRF    79,F
-004E:  MOVF   78,W
-004F:  MOVWF  15
-0050:  RRF    79,F
-0051:  RRF    79,W
-0052:  ANDLW  30
-0053:  MOVWF  77
-0054:  MOVF   17,W
-0055:  ANDLW  CF
-0056:  IORWF  77,W
-0057:  MOVWF  17
-....................          delay_ms (5); //Retardo de 5ms 
-0058:  MOVLW  05
-0059:  MOVWF  23
-005A:  CALL   017
-005B:  INCF   20,F
-005C:  BTFSC  03.2
-005D:  INCF   21,F
-005E:  GOTO   03E
-....................       } 
-....................  
-....................        
-....................       for (Duty = 255; Duty > 0; Duty--) // Ciclo para disminuir el valor de la variable 
-005F:  CLRF   21
-0060:  MOVLW  FF
-0061:  MOVWF  20
-0062:  MOVF   20,F
-0063:  BTFSS  03.2
-0064:  GOTO   068
-0065:  MOVF   21,F
-0066:  BTFSC  03.2
-0067:  GOTO   083
-....................       { 
-....................          set_pwm1_duty (Duty); //Asigna el valor del Duty al PWM 
-0068:  MOVF   21,W
-0069:  MOVWF  79
-006A:  MOVF   20,W
-006B:  MOVWF  78
+004A:  MOVF   78,W
+004B:  MOVWF  15
+004C:  RRF    79,F
+004D:  RRF    79,W
+004E:  ANDLW  30
+004F:  MOVWF  77
+0050:  MOVF   17,W
+0051:  ANDLW  CF
+0052:  IORWF  77,W
+0053:  MOVWF  17
+....................          delay_ms ( 5 );                     //Retardo de 5ms
+0054:  MOVLW  05
+0055:  MOVWF  23
+0056:  CALL   004
+0057:  INCF   20,F
+0058:  BTFSC  03.2
+0059:  INCF   21,F
+005A:  GOTO   03A
+....................       }
+....................       
+....................       for ( Duty = 255; Duty > 0; Duty-- ) { // Ciclo para disminuir el valor de la variable
+005B:  CLRF   21
+005C:  MOVLW  FF
+005D:  MOVWF  20
+005E:  MOVF   20,F
+005F:  BTFSS  03.2
+0060:  GOTO   064
+0061:  MOVF   21,F
+0062:  BTFSC  03.2
+0063:  GOTO   07F
+....................          set_pwm1_duty ( Duty );             //Asigna el valor del Duty al PWM
+0064:  MOVF   21,W
+0065:  MOVWF  79
+0066:  MOVF   20,W
+0067:  MOVWF  78
+0068:  RRF    79,F
+0069:  RRF    78,F
+006A:  RRF    79,F
+006B:  RRF    78,F
 006C:  RRF    79,F
-006D:  RRF    78,F
-006E:  RRF    79,F
-006F:  RRF    78,F
-0070:  RRF    79,F
-0071:  MOVF   78,W
-0072:  MOVWF  15
-0073:  RRF    79,F
-0074:  RRF    79,W
-0075:  ANDLW  30
-0076:  MOVWF  77
-0077:  MOVF   17,W
-0078:  ANDLW  CF
-0079:  IORWF  77,W
-007A:  MOVWF  17
-....................          delay_ms (5); // Retardo de 5ms 
-007B:  MOVLW  05
-007C:  MOVWF  23
-007D:  CALL   017
-007E:  MOVF   20,W
-007F:  BTFSC  03.2
-0080:  DECF   21,F
-0081:  DECF   20,F
-0082:  GOTO   062
-....................       } 
-0083:  GOTO   03C
-....................    } 
-.................... } 
-....................  
-0084:  SLEEP
+006D:  MOVF   78,W
+006E:  MOVWF  15
+006F:  RRF    79,F
+0070:  RRF    79,W
+0071:  ANDLW  30
+0072:  MOVWF  77
+0073:  MOVF   17,W
+0074:  ANDLW  CF
+0075:  IORWF  77,W
+0076:  MOVWF  17
+....................          delay_ms ( 5 );                     // Retardo de 5ms
+0077:  MOVLW  05
+0078:  MOVWF  23
+0079:  CALL   004
+007A:  MOVF   20,W
+007B:  BTFSC  03.2
+007C:  DECF   21,F
+007D:  DECF   20,F
+007E:  GOTO   05E
+....................       }
+007F:  GOTO   038
+....................    }
+.................... }
+0080:  SLEEP
 
 Configuration Fuses:
    Word  1: 3F72   HS NOWDT PUT BROWNOUT NOLVP NOCPD NOWRT NODEBUG NOPROTECT

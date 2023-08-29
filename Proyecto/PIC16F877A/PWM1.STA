@@ -1,9 +1,9 @@
 
-ROM used:   133/8192 (2%)
-            133/8192 (2%) including unused fragments
+ROM used:   129/8192 (2%)
+            129/8192 (2%) including unused fragments
 
             0.2 Average locations per line
-            10.2 Average locations per statement
+            10.8 Average locations per statement
 
 RAM used:   8/368 (2%) at main() level
             9/368 (2%) worst case
@@ -13,34 +13,33 @@ Stack size: 8
 
 Lines Stmts  %   Files
 ----- ----- ---  -----
-   44    13 100  PWM1.c
-  684     0   0  ..\..\..\..\..\Program Files\PICC\Devices\16F877A.h
+   38    12 100  PWM1.c
+  708     0   0  ..\..\..\..\..\..\..\..\..\..\Program Files (x86)\PICCDEMO\Devices\16F877A.h
 ----- -----
-  728    13 Total
+  746    12 Total
 
 Page ROM  %  RAM    Vol Diff  Functions:
 ---- --- --- ---    --- ----  ----------
-0     20  15    1             @delay_ms1
-0     19  14    0     56  1.6  SisInit
-0     90  68    0    255  4.5  MAIN
+0     20  16    1             @delay_ms1
+0    105  81    0    322  5.1  main
  Inline         0             @cinit1
 
 Program metrics:
-    Functions               2
-    Statements              13
-    Comments                146
-    Volume (V)              367
-    Difficulty (D)          5.7
-    Effort to implement (E) 2100
-    Time to implement (T)   2 minutes
+    Functions               1
+    Statements              12
+    Comments                156
+    Volume (V)              327
+    Difficulty (D)          4.8
+    Effort to implement (E) 1558
+    Time to implement (T)   1 minutes
     Est Delivered Bugs (B)  0
     Cyclomatic Complexity   2
-    Maintainability (MI)    144
+    Maintainability (MI)    124
 
  Segment     Used  Free
 -----------  ----  ----
 00000-00003     4  0  
-00004-007FF   129  1915  
+00004-007FF   125  1919  
 00800-00FFF     0  2048  
 01000-017FF     0  2048  
 01800-01FFF     0  2048  

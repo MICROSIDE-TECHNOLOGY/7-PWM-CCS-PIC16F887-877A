@@ -1,7 +1,7 @@
 [PROJECT]
 Target=PWM1.hex
 Processor_Text=PIC16F887
-CCSVersion=5.076
+CCSVersion=5.115d
 Compiler=PCM
 [Target Data]
 FileList=PWM1.c
@@ -9,15 +9,27 @@ FileList=PWM1.c
 Type=4
 [mru-list]
 1=PWM1.c
-[Units]
-Count=1
-1=PWM1 (main)
 
 [defines]
-buildcount=1
+buildcount=2
 
 [ProjectLog]
-Days=1
+Days=2
 D1=24-02-2022
 D1_L=1
 D1_L1=[49188]Project Closed.
+D2=29-08-2023
+D2_L=2
+D2_L1=[59312]Project Opened.
+D2_L2=[59388]Project Closed.
+
+[fileformats]
+forcecoff=0
+
+[Opened Files]
+1=PWM1.c
+t1=1
+Count=1
+[Units]
+Count=1
+1=PWM1 (main)
